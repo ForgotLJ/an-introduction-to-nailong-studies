@@ -1,0 +1,58 @@
+%% 固定页面坐标避免封面内容被正文页边距挤压。
+\thispagestyle{empty}
+\pdfbookmark[0]{封面}{frontcover}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[NLCoverPaper] (current page.north west) rectangle (current page.south east);
+  \begin{scope}[shift={(current page.north west)},x=1cm,y=-1cm]
+    \fill[NLCoverGreen] (0,24.95) rectangle (21,29.7);
+    \fill[NLCoverGold] (0,0) rectangle (.38,29.7);
+    \draw[NLCoverGreen,line width=.6pt] (2.1,2.66) -- (18.85,2.66);
+    \node[nlcovertext,text=NLCoverGreen,font=\NLCoverSans\fontsize{11.5}{15}\selectfont]
+      at (2.1,1.72) {高等学校通识教育教材};
+    \node[nlcoverright,text=NLCoverMuted,font=\NLCoverSans\fontsize{9}{12}\selectfont]
+      at (18.85,1.80) {迷因文化研究系列};
+
+    \node[nlcovertext,text=NLCoverGreen,font=\NLCoverBold\bfseries\fontsize{51}{61}\selectfont]
+      at (2.02,3.97) {\BookTitle};
+    \node[nlcovertext,text=NLCoverGreen,font=\NLCoverSans\fontsize{17}{23}\selectfont]
+      at (2.1,6.55) {\BookSubtitle};
+    \node[nlcovertext,text=NLCoverMuted,font=\NLCoverLatin\fontsize{10.2}{14}\selectfont]
+      at (2.14,7.87) {{\addfontfeatures{LetterSpace=9}AN INTRODUCTION TO NAILONG STUDIES}};
+    \node[nlcovertext,text=NLCoverGreen,font=\NLCoverSans\fontsize{11.5}{16}\selectfont]
+      at (2.1,9.21) {\BookOrg};
+    \draw[NLCoverGold,line width=2.2pt] (2.1,10.52) -- (5.35,10.52);
+    \node[nlcoverright,text=NLCoverGreen,font=\NLCoverSans\fontsize{10.5}{14}\selectfont]
+      at (18.85,9.24) {\BookEdition};
+
+    %% 低对比轮廓线呼应“形象—传播—社群”的研究主题。
+    \begin{scope}
+      \clip (.39,10.9) rectangle (21,24.95);
+      \fill[NLCoverGold!9!NLCoverPaper] (13.88,18.85) circle (5.36);
+      \draw[NLCoverGold!38!NLCoverPaper,line width=.5pt] (13.88,18.85) circle (5.71);
+      \draw[NLCoverLine,line width=.45pt] (13.88,18.85) circle (6.05);
+      \draw[NLCoverLine!65!NLCoverPaper,line width=.4pt] (13.88,18.85) circle (6.39);
+    \end{scope}
+    %% 使用项目已有原貌；抠图资产可由 tools/prepare_cover_asset.py 重建。
+    \foreach \r/\o in {1.0/.025,.86/.03,.70/.035,.52/.04} {
+      \fill[NLCoverGreen,opacity=\o] (11.9,22.97)
+        ellipse ({1.55*\r} and {.13*\r});
+      \fill[NLCoverGreen,opacity=\o] (15.13,23.90)
+        ellipse ({1.03*\r} and {.15*\r});
+    }
+    \node[inner sep=0,outer sep=0] at (13.60,17.94)
+      {\includegraphics[height=12.30cm]{figures/cover_naiwa_cutout.png}};
+
+    \node[nlcovertext,text=NLCoverGreen,font=\NLCoverSans\fontsize{15}{25}\selectfont]
+      at (2.1,18.66) {从一个形象\\理解一种文化};
+    \node[nlcovertext,text=NLCoverMuted,font=\NLCoverSans\fontsize{9.2}{13}\selectfont]
+      at (2.1,21.08) {形象\enspace /\enspace 传播\enspace /\enspace 社群};
+
+    \node[nlcovertext,text=NLCoverPaper,font=\NLCoverSans\fontsize{13}{18}\selectfont]
+      at (2.1,26.11) {数字文化与校园社群};
+    \node[nlcovertext,text=NLCoverGold,font=\NLCoverLatin\fontsize{8.7}{12}\selectfont]
+      at (2.13,27.37) {{\addfontfeatures{LetterSpace=11}HISTORY\enspace /\enspace MEMES\enspace /\enspace METHODS}};
+    \node[nlcoverright,text=NLCoverPaper!85!NLCoverGreen,font=\NLCoverSans\fontsize{9.2}{13}\selectfont]
+      at (18.85,27.32) {\BookDate};
+  \end{scope}
+\end{tikzpicture}
+\null\clearpage

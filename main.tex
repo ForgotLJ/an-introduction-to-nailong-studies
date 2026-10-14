@@ -1,0 +1,160 @@
+%% =====================================================================
+%%  《奶龙学导论：从奶龙到奶蛙的迷因文化研究》
+%%  主控文件 main.tex
+%%
+%%  编译流程（必须使用 XeLaTeX）：
+%%     xelatex main
+%%     bibtex  main
+%%     xelatex main
+%%     xelatex main
+%%  或直接运行： latexmk -xelatex main.tex
+%%  一键脚本：   build.ps1
+%% =====================================================================
+\documentclass[UTF8,11pt,openany,oneside]{ctexbook}
+
+\input{style/nailong.sty}
+
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{gbt7714-numerical}
+\setcitestyle{super}   % 上标式引用，符合 GB/T 7714 习惯
+
+\usepackage{imakeidx}
+\makeindex[title=术语与人名索引,columns=2,intoc=true]
+
+\usepackage[
+  bookmarksnumbered=true,
+  colorlinks=true,
+  linkcolor=NLDeep,
+  citecolor=NLTeal,
+  urlcolor=NLAmber,
+  pdfstartview=FitH,
+  pdftitle={奶龙学导论：从奶龙到奶蛙的迷因文化研究},
+  pdfauthor={《奶龙学导论》编写组},
+  pdfsubject={迷因文化研究教材},
+  pdfkeywords={奶龙,奶蛙,捧腹大笑,迷因,网络亚文化,教材}
+]{hyperref}
+\usepackage{bookmark}
+
+%% ---------- 页面几何 ----------
+\usepackage[a4paper,top=2.6cm,bottom=2.4cm,left=2.4cm,right=2.2cm,headsep=0.6cm,footskip=1.0cm]{geometry}
+
+%% ---------- 中文目录标题 ----------
+\renewcommand{\contentsname}{目\quad 录}
+\renewcommand{\listfigurename}{插图目录}
+\renewcommand{\listtablename}{表格目录}
+\renewcommand{\bibname}{参考文献}
+\renewcommand{\indexname}{术语与人名索引}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\appendixname}{附录}
+\renewcommand{\chaptermark}[1]{\markboth{\CTEXthechapter\quad #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\quad #1}}
+
+%% ---------- 全书统一“口径”“版本”宏 ----------
+\newcommand{\BookTitle}{奶龙学导论}
+\newcommand{\BookSubtitle}{从奶龙到奶蛙的迷因文化研究}
+\newcommand{\BookEdition}{第一版}
+\newcommand{\BookDate}{二〇二六年十月}
+\newcommand{\BookOrg}{《奶龙学导论》编写组}
+
+\input{style/cover.tex}
+
+\begin{document}
+
+%% ===================== 封面 =====================
+\input{frontmatter/cover}
+
+%% ===================== 版权页 =====================
+\thispagestyle{empty}
+\vspace*{\fill}
+{\footnotesize\color{NLGrey}
+\noindent\textbf{奶龙学导论：从奶龙到奶蛙的迷因文化研究}（\BookEdition）\\[0.6em]
+\noindent 编写单位：《奶龙学导论》编写组\\[0.3em]
+\noindent 排版工具：XeLaTeX + ctex + TikZ\\[0.3em]
+\noindent 版本标识：\texttt{\BookDate}\\
+\noindent 封面图像：原讲义《捧腹大笑思想与奶龙学概论》所收奶蛙形象，
+相关权利归原权利人所有。\\
+
+\vspace{1.2em}
+\noindent\textbf{使用许可与免责声明}\\[0.4em]
+\noindent 本书为面向高校学生社团与通识课程的非营利性开源讲义，遵循
+署名—非商业性使用—相同方式共享（CC BY-NC-SA 4.0）协议发布，
+欢迎各高校同好会以本校活动材料为基础进行修订与续编。\\[0.4em]
+\noindent 书中涉及的“奶龙”动画形象、剧集名称及其相关商标，其知识产权
+归属第七印象文化传媒（深圳）有限公司；书中涉及的“奶蛙”二次创作形象，
+其署名权归属原始创作者。本书对上述形象的使用限于
+\textbf{学术评论、教学示例与文化研究}目的，不主张任何权利，
+亦不构成对原作品著作权的替代或商业利用。部分历史资料图
+来自网络公开渠道，已尽力标注来源；如权利人认为使用不当，
+请联系编写组予以替换或删除。\\[0.4em]
+\noindent 书中所有理论模型、统计口径与数据均标注来源与可信度等级；
+凡未标注来源者，均为编写组自行建构的“教学模型”，
+\textbf{用于训练分析能力，不应被引为经验事实}。
+
+\vspace{1.2em}
+\noindent\textbf{关于本书的文风}\\[0.4em]
+\noindent 本书研究对象本身带有强烈的戏谑色彩。编写组的态度是：
+\textbf{对现象保持幽默，对方法保持严肃}。凡属调侃，均在正文中以
+脚注或“批判性反思”框标明；凡属论证，一律给出可核查的依据。
+}
+
+\clearpage
+
+%% ===================== 序一 / 前言 =====================
+\frontmatter
+\pagestyle{fancy}
+\input{frontmatter/preface}
+
+%% ===================== 目录 =====================
+\cleardoublepage
+\pdfbookmark[0]{目录}{toc}
+\tableofcontents
+\clearpage
+\listoffigures
+\clearpage
+\listoftables
+
+%% ===================== 正文 =====================
+\mainmatter
+
+\input{chapters/ch01_intro}
+\input{chapters/ch02_concept}
+\input{chapters/ch03_nailong_history}
+\input{chapters/ch04_naiwa_origin}
+\input{chapters/ch05_meme_framework}
+\input{chapters/ch06_semiotics}
+\input{chapters/ch07_mechanisms}
+\input{chapters/ch08_aigc}
+\input{chapters/ch09_economy}
+\input{chapters/ch10_campus}
+\input{chapters/ch11_audience}
+\input{chapters/ch12_method}
+
+%% ===================== 附录 =====================
+\appendix
+%% 附录模式：章标签切换为“附录 X”，节编号切换为“X.1”样式
+%% （LaTeX 的 \appendix 会把章计数器清零，正文用的“第\zhnum{chapter}章”
+%%   与 \arabic{chapter}.\arabic{section} 在此会错误地显示为“第一章”“1.1”）
+\renewcommand{\NLchapterlabel}{附录\,\thechapter}
+\renewcommand{\thesection}{\Alph{chapter}.\arabic{section}}
+\input{backmatter/appendix_a_timeline}
+\input{backmatter/appendix_b_glossary}
+\input{backmatter/appendix_c_answers}
+\input{backmatter/appendix_d_works}
+
+%% ===================== 参考文献 =====================
+\cleardoublepage
+\addcontentsline{toc}{chapter}{参考文献}
+\bibliography{refs/references}
+
+%% ===================== 索引 =====================
+\cleardoublepage
+\printindex
+
+%% ===================== 后记 =====================
+\input{backmatter/postscript}
+
+%% ===================== 封底 =====================
+\input{backmatter/backcover}
+
+\end{document}

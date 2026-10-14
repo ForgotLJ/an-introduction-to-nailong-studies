@@ -1,0 +1,68 @@
+%% 封底：与封面共享边距、配色、字体与分隔线。
+\clearpage
+\thispagestyle{empty}
+\pdfbookmark[0]{封底}{backcover}
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[NLCoverGreen] (current page.north west) rectangle (current page.south east);
+  \begin{scope}[shift={(current page.north west)},x=1cm,y=-1cm]
+    \fill[NLCoverGold] (0,0) rectangle (.38,29.7);
+    \draw[NLCoverPaper!35!NLCoverGreen,line width=.6pt] (2.1,2.66) -- (18.85,2.66);
+    \node[nlcovertext,text=NLCoverPaper,font=\NLCoverSans\fontsize{11.5}{15}\selectfont]
+      at (2.1,1.72) {迷因文化研究系列};
+    \node[nlcoverright,text=NLCoverPaper!75!NLCoverGreen,font=\NLCoverLatin\fontsize{8.4}{12}\selectfont]
+      at (18.85,1.85) {{\addfontfeatures{LetterSpace=9}NAILONG STUDIES}};
+
+    \node[nlcovertext,text=NLCoverPaper,font=\NLCoverBold\bfseries\fontsize{26}{40}\selectfont]
+      at (2.1,4.06) {对现象保持幽默，\\对方法保持严肃。};
+    \draw[NLCoverGold,line width=2.2pt] (2.1,7.52) -- (5.35,7.52);
+
+    \node[nlcovertext,text=NLCoverGold,font=\NLCoverSans\fontsize{12.5}{18}\selectfont]
+      at (2.1,8.36) {一部关于数字迷因与校园文化的通识读本};
+    \node[nlcovertext,text=NLCoverPaper!88!NLCoverGreen,text width=16.45cm,
+      font=\NLCoverSans\fontsize{11.5}{21}\selectfont]
+      at (2.1,9.65) {从奶龙到奶蛙，从一段笑声到一场校园相遇，本书以十二章的篇幅，
+      连接形象演变、迷因理论、传播机制与社群实践。通过概念界定、史料辨析、
+      案例讨论和研究方法训练，引导读者把熟悉的网络现象转化为可以分析的文化问题。};
+
+    \foreach \y in {13.35,16.55,19.75,22.95} {
+      \draw[NLCoverPaper!22!NLCoverGreen,line width=.45pt] (2.1,\y) -- (18.85,\y);
+    }
+    \node[nlcovertext,text=NLCoverGold,font=\NLCoverLatin\fontsize{21}{27}\selectfont]
+      at (2.1,14.12) {01};
+    \node[nlcovertext,text=NLCoverPaper,font=\NLCoverBold\bfseries\fontsize{14.5}{19}\selectfont]
+      at (4.15,14.10) {形象与历史};
+    \node[nlcovertext,text=NLCoverPaper!76!NLCoverGreen,text width=14.4cm,
+      font=\NLCoverSans\fontsize{10.2}{17}\selectfont]
+      at (4.15,15.07) {厘清奶龙与奶蛙的概念边界，回到传播史与材料本身。};
+
+    \node[nlcovertext,text=NLCoverGold,font=\NLCoverLatin\fontsize{21}{27}\selectfont]
+      at (2.1,17.32) {02};
+    \node[nlcovertext,text=NLCoverPaper,font=\NLCoverBold\bfseries\fontsize{14.5}{19}\selectfont]
+      at (4.15,17.30) {迷因与社群};
+    \node[nlcovertext,text=NLCoverPaper!76!NLCoverGreen,text width=14.4cm,
+      font=\NLCoverSans\fontsize{10.2}{17}\selectfont]
+      at (4.15,18.27) {结合符号学、情绪传播与校园案例，理解网络文化的生成。};
+
+    \node[nlcovertext,text=NLCoverGold,font=\NLCoverLatin\fontsize{21}{27}\selectfont]
+      at (2.1,20.52) {03};
+    \node[nlcovertext,text=NLCoverPaper,font=\NLCoverBold\bfseries\fontsize{14.5}{19}\selectfont]
+      at (4.15,20.50) {方法与实践};
+    \node[nlcovertext,text=NLCoverPaper!76!NLCoverGreen,text width=14.4cm,
+      font=\NLCoverSans\fontsize{10.2}{17}\selectfont]
+      at (4.15,21.47) {从内容分析到访谈与考据，训练证据意识与研究伦理。};
+
+    \node[nlcovertext,text=NLCoverPaper!72!NLCoverGreen,font=\NLCoverSans\fontsize{9.4}{14}\selectfont]
+      at (2.1,23.69) {概念\enspace ·\enspace 史料\enspace ·\enspace 案例\enspace ·\enspace 习题\enspace ·\enspace 方法};
+
+    \fill[NLCoverPaper] (.38,25.38) rectangle (21,29.7);
+    \node[nlcovertext,text=NLCoverMuted,font=\NLCoverSans\fontsize{9.2}{13}\selectfont]
+      at (2.1,26.12) {适用对象};
+    \node[nlcovertext,text=NLCoverGreen,font=\NLCoverSans\fontsize{10.5}{16}\selectfont]
+      at (2.1,26.89) {高校通识课程\enspace ·\enspace 学生社团\enspace ·\enspace 迷因文化爱好者};
+    \node[nlcovertext,text=NLCoverMuted,font=\NLCoverSans\fontsize{8.5}{12}\selectfont]
+      at (2.1,28.24) {\BookEdition\enspace ·\enspace \BookDate};
+    \node[nlcoverright,text=NLCoverMuted,font=\NLCoverSans\fontsize{8.5}{12}\selectfont]
+      at (18.85,28.24) {戏拟教材\enspace /\enspace 非营利性讲义};
+  \end{scope}
+\end{tikzpicture}
+\null\clearpage

@@ -1,0 +1,29 @@
+# LaTeX auxiliary files and local build logs.
+/build/
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.xdv
+
+# Local editor and OS state.
+/.vscode/
+.DS_Store
+Thumbs.db
+
+# Root-level local exports; the versioned copy lives under output/.
+/《奶龙学导论》.pdf
+/《捧腹大笑思想与奶龙学概论》.pdf
+
+# Research extracts and unused source images are kept locally, not uploaded.
+/ref/*
+!/ref/img/
+/ref/img/*
+!/ref/img/fig-006-021.jpg

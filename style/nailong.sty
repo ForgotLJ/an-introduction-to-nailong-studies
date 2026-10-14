@@ -1,0 +1,232 @@
+%% =====================================================================
+%%  nailong.sty —— 《奶龙学导论》教材统一体例宏包
+%%  编译方式：xelatex（必须）。本文件为全书“共享宏层”，
+%%  所有章节文件只能使用此处已定义的宏，不得自行 \usepackage。
+%%  如确需新增宏，请先在 style/CHANGELOG.md 登记，再由主编并入本文件。
+%% =====================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{nailong}[2026/10/12 v1.0 NaiLong Studies textbook style]
+
+%% ---------- 0. 依赖（全部经 TeX Live 2025 验证可用） ----------
+\RequirePackage{iftex}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts}
+\RequirePackage{amsthm}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{array}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+\RequirePackage{multirow}
+\RequirePackage{makecell}
+\RequirePackage{tabularx}
+\RequirePackage{enumitem}
+\RequirePackage{etoolbox}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,fit,backgrounds,decorations.pathmorphing,patterns}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\RequirePackage{float}
+\RequirePackage{wrapfig}
+\RequirePackage{fancyhdr}
+\RequirePackage{titlesec}
+%% 中文排版习惯：标题（章/节/小节）后的首段同样首行缩进
+%% （西文默认是标题后首段不缩进，titlesec 沿用了这一默认，需用 indentfirst 覆盖）
+\RequirePackage{indentfirst}
+\RequirePackage{titletoc}
+\RequirePackage{xeCJKfntef}
+\RequirePackage{ulem}
+\normalem
+\RequirePackage{epigraph}
+\RequirePackage{footmisc}
+\RequirePackage{siunitx}
+\RequirePackage{zhnumber}
+
+%% ---------- 1. 配色（教材主色调：奶黄 + 墨绿 + 玄青） ----------
+\definecolor{NLYellow}{HTML}{F2B705}   % 奶黄：主强调色
+\definecolor{NLDeep}{HTML}{2E4A44}     % 墨绿：标题、章题
+\definecolor{NLInk}{HTML}{23282B}      % 玄青：正文强调
+\definecolor{NLTeal}{HTML}{1F6F6B}     % 青：定义框
+\definecolor{NLAmber}{HTML}{B4761A}    % 赭：史料框
+\definecolor{NLViolet}{HTML}{5B4B8A}   % 紫：方法框
+\definecolor{NLGreen}{HTML}{2F6B3C}    % 绿：例题框
+\definecolor{NLRed}{HTML}{9C2B2B}      % 红：警示框
+\definecolor{NLGrey}{HTML}{6B7379}     % 灰
+\definecolor{NLBg}{HTML}{FBF7EE}       % 浅奶底
+
+%% ---------- 2. 版面 ----------
+\setlength{\parindent}{2\ccwd}
+\setlength{\headheight}{14pt}
+\linespread{1.32}
+\setlength{\parskip}{0.25em}
+\renewcommand{\arraystretch}{1.22}
+\newcommand{\NLCodeFont}{\ttfamily\small}
+
+%% 页眉页脚：偶数页书名、奇数页章名
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\heiti\color{NLDeep}\leftmark}
+\fancyhead[RO]{\small\heiti\color{NLDeep}\rightmark}
+\fancyfoot[C]{\small\color{NLGrey}\thepage}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\color{NLGrey}\thepage}\renewcommand{\headrulewidth}{0pt}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{NLYellow}\leaders\hrule height \headrulewidth\hfill}}
+
+%% ---------- 3. 章节标题样式 ----------
+%% 章标签做成可切换宏：正文为“第…章”，附录区（main.tex 中 \appendix 之后）重定义为“附录 X”
+\newcommand{\NLchapterlabel}{第\,\zhnum{chapter}\,章}
+\titleformat{\chapter}[display]
+  {\normalfont\heiti\color{NLDeep}}
+  {\filright\fontsize{15}{18}\selectfont\NLchapterlabel}
+  {0.6em}
+  {\fontsize{26}{30}\selectfont\filright}
+  [\vspace{0.4em}{\color{NLYellow}\titlerule[1.6pt]}]
+\titlespacing*{\chapter}{0pt}{-10pt}{32pt}
+%% 中文章号改用汉字数字显示（章内计数仍为阿拉伯数字）
+%% 注意：不要重定义 \thechapter，否则 \arabic{chapter} 会递归；此处只改“显示名”。
+\renewcommand{\thesection}{\arabic{chapter}.\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection.\arabic{subsubsection}}
+
+\titleformat{\section}
+  {\normalfont\heiti\fontsize{16}{19}\selectfont\color{NLDeep}}
+  {\thesection}{0.6em}{}
+\titleformat{\subsection}
+  {\normalfont\heiti\fontsize{13.5}{16}\selectfont\color{NLDeep}}
+  {\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}
+  {\normalfont\heiti\fontsize{12}{15}\selectfont\color{NLInk}}
+  {\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus .4ex}{1.1ex}
+\titlespacing*{\subsection}{0pt}{1.7ex plus .3ex}{0.8ex}
+\titlespacing*{\subsubsection}{0pt}{1.3ex plus .2ex}{0.6ex}
+
+%% 目录
+\titlecontents{chapter}[0em]
+  {\addvspace{0.55em}\heiti\color{NLDeep}}
+  {\thecontentslabel\quad}{}
+  {\hfill\contentspage}
+\titlecontents{section}[1.6em]
+  {\addvspace{0.1em}}
+  {\thecontentslabel\quad}{}
+  {\hfill\contentspage}
+
+%% ---------- 4. 引理/定义/命题 环境（教材式“定义—命题—例”骨架） ----------
+\newtheoremstyle{nlthm}%
+  {1.1em}{1.1em}{\normalfont}{}%
+  {\heiti\color{NLTeal}}{}{0.6em}{}
+\theoremstyle{nlthm}
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{proposition}[definition]{命题}
+\newtheorem{theorem}[definition]{定理}
+\newtheorem{lemma}[definition]{引理}
+\newtheorem{corollary}[definition]{推论}
+\newtheorem{hypothesis}[definition]{假设}
+\theoremstyle{definition}
+\newtheorem{example}{例}[chapter]
+\newtheorem{exercise}{习题}[chapter]
+\renewcommand{\proofname}{\heiti 证明}
+\renewcommand{\qedsymbol}{\ensuremath{\blacksquare}}
+
+%% ---------- 5. 教材专用彩色框 ----------
+%% 5.1 术语释义：\begin{nltermbox}{术语名}...\end{nltermbox}
+\newtcolorbox{nltermbox}[1][]{
+  enhanced, breakable, colback=NLBg, colframe=NLTeal,
+  boxrule=0.7pt, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  arc=2pt, fonttitle=\heiti\small,
+  title={\color{white}#1}, attach boxed title to top left={xshift=6pt,yshift=-2pt},
+  boxed title style={colback=NLTeal,arc=1pt,boxrule=0pt}
+}
+
+%% 5.2 史料与考据
+\newtcolorbox{nlhistory}[1][史料与考据]{
+  enhanced, breakable, colback=NLAmber!5, colframe=NLAmber,
+  boxrule=0.7pt, arc=2pt, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fonttitle=\heiti\small, coltitle=white,
+  title={#1}, attach boxed title to top left={xshift=6pt,yshift=-2pt},
+  boxed title style={colback=NLAmber,arc=1pt,boxrule=0pt}
+}
+
+%% 5.3 研究方法提示
+\newtcolorbox{nlmethod}[1][研究方法提示]{
+  enhanced, breakable, colback=NLViolet!5, colframe=NLViolet,
+  boxrule=0.7pt, arc=2pt, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fonttitle=\heiti\small, coltitle=white,
+  title={#1}, attach boxed title to top left={xshift=6pt,yshift=-2pt},
+  boxed title style={colback=NLViolet,arc=1pt,boxrule=0pt}
+}
+
+%% 5.4 批判性反思（对“乐子”保持学理距离）
+\newtcolorbox{nlcritique}[1][批判性反思]{
+  enhanced, breakable, colback=NLRed!4, colframe=NLRed,
+  boxrule=0.7pt, arc=2pt, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fonttitle=\heiti\small, coltitle=white,
+  title={#1}, attach boxed title to top left={xshift=6pt,yshift=-2pt},
+  boxed title style={colback=NLRed,arc=1pt,boxrule=0pt}
+}
+
+%% 5.5 案例
+\newtcolorbox{nlcase}[1][案例]{
+  enhanced, breakable, colback=NLGreen!4, colframe=NLGreen,
+  boxrule=0.7pt, arc=2pt, left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fonttitle=\heiti\small, coltitle=white,
+  title={#1}, attach boxed title to top left={xshift=6pt,yshift=-2pt},
+  boxed title style={colback=NLGreen,arc=1pt,boxrule=0pt}
+}
+
+%% 5.6 本章要点（章首）
+\newtcolorbox{nlkeypoints}[1][本章要点]{
+  enhanced, breakable, colback=NLYellow!12, colframe=NLYellow!80!black,
+  boxrule=0.8pt, arc=2pt, left=10pt, right=10pt, top=7pt, bottom=7pt,
+  fonttitle=\heiti\small, coltitle=white,
+  title={#1}, attach boxed title to top left={xshift=6pt,yshift=-2pt},
+  boxed title style={colback=NLYellow!80!black,arc=1pt,boxrule=0pt}
+}
+
+%% ---------- 6. 术语、索引与代码 ----------
+%% \term{术语}：加粗黑体并进入索引（使用前需 \makeindex）
+\newcommand{\term}[1]{\textbf{\heiti #1}\index{#1}}
+\newcommand{\tsm}[1]{\textsf{#1}}                 % 无衬线术语
+\newcommand{\en}[1]{\textit{#1}}                  % 外文原文
+\newcommand{\NL}[1]{\textcolor{NLDeep}{\heiti #1}}
+\newcommand{\keyw}[1]{\textcolor{NLInk}{\heiti #1}}
+\newcommand{\fname}[1]{\texttt{#1}}               % 文件名/代码
+\newcommand{\srcnote}[1]{{\footnotesize\color{NLGrey}#1}}
+
+%% 行内“口径提示”：用于标注资料可信度
+\newcommand{\conf}[1]{{\footnotesize\color{NLAmber}\,[#1]}}
+
+%% ---------- 7. 表格与图 ----------
+\captionsetup{font={small,sf},labelfont={bf,color=NLDeep},labelsep=quad}
+\captionsetup[table]{position=top,skip=4pt}
+\captionsetup[figure]{position=bottom,skip=4pt}
+\newcommand{\nlfigpath}{figures/}
+
+%% 建议统一使用：
+%% \begin{figure}[htbp]\centering\includegraphics[width=.7\textwidth]{...}
+%%   \caption{...}\label{fig:...}\end{figure}
+
+%% ---------- 8. 时间线宏（史料章节常用） ----------
+%% \tl{1962}{巴赫金《拉伯雷》法译本问世}
+\newcommand{\tl}[2]{\par\noindent\hangindent=3.6em\hangafter=1
+  {\heiti\color{NLDeep}#1}\hspace{0.5em}#2\par\vspace{0.15em}}
+
+%% ---------- 9. 习题区 ----------
+\newenvironment{nlexercises}[1][本章习题]{%
+  \par\medskip\noindent{\heiti\fontsize{13.5}{16}\selectfont\color{NLDeep}#1}\par
+  \vspace{0.3em}
+  \begin{enumerate}[label=\arabic*.,leftmargin=2.2em,itemsep=0.25em,topsep=0.2em]
+}{%
+  \end{enumerate}
+}
+\newenvironment{nlkeywords}[1][关键术语]{%
+  \par\medskip\noindent{\heiti\color{NLDeep}#1：}\hspace{0.2em}
+}{\par}
+
+%% ---------- 10. 超链接（需要 hyperref 在最后加载） ----------
+\endinput

@@ -1,0 +1,406 @@
+\chapter{迷因理论框架：复制、变异与选择}\label{ch:05}
+
+\begin{nlkeypoints}
+  \begin{enumerate}[label=(\arabic*),leftmargin=2.4em]
+    \item 迷因（\en{meme}）在本书中的操作化用法：
+          一个在头脑间复制的文化单元，经历\keyw{变异—选择—保留}
+          三阶段；分析单位是“结构相似度高于社群默许阈值的用例簇”，
+          不是某个具体文件。
+    \item Shifman 三维框架（\keyw{内容 / 形式 / 立场}）
+          是第六章解剖奶蛙的工具；
+          “迷因作为争夺中的文化资本”解释了
+          为什么“看不懂”本身就是传播力的一部分。
+    \item 本书自建了一个\keyw{SIR 型迷因传播教学模型}
+（M 级，参数为示意值）：用“易感—传播—疲劳”三态说明热度为何必然衰减、
+以及“二次爆发”需要何种条件（新变体、新工具或免疫衰减）。
+  \end{enumerate}
+\end{nlkeypoints}
+
+前四章处理的是对象与史实。本章切换任务：
+给全书配一套\keyw{分析工具}。
+工具只有一件半：一件是迷因理论
+（从道金斯到 Shifman 的概念链），
+半件是本书自建的传播教学模型。
+之所以说“半件”，是因为后者的地位
+在前言与第一章已经声明：
+它是\keyw{教学脚手架}（M 级），
+不是经验发现——
+它的作用是让“为什么会衰减”
+“为什么会二次爆发”这类问题
+变得\keyw{可形式化}，
+从而让第六章的符号分析与
+第七章的机制假设
+有一个共同的时间骨架。
+
+\section{复制子：meme 的概念源}\label{sec:05:dawkins}
+
+道金斯在《自私的基因》第 11 章提出 \en{meme}：“文化就像基因组一样，
+ 由大量复制的单位组成……这些单位我们不妨称为 meme”
+ \cite{dawkins1976selfish}。定义的关键不在类比本身，
+ 而在它携带的\keyw{三个判据}： (1) 可复制——
+能在个体间被忠实程度不等的传递； (2) 可变异——每次复制都可能引入差异；
+ (3) 受选择——环境（受众偏好、平台算法、社群规范）决定哪些变体留存。
+
+《延伸的表现型》把“复制子”的视角从基因延伸到更一般的“文化结构”
+\cite{dawkins1982extended}。本书取用这一视角，但立刻做两处限定：
+
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{不主张本体论}。
+“奶蛙是一个 meme”
+ 这句话在本书中 \keyw{不是一种存在论断言} （好像网络文化中存在一个叫 meme 的实体），
+ 而是\keyw{方法论约定}：我们\keyw{假装}存在可复制、可变异、
+受选择的文化单元，以便使用“变异率”“选择压力”
+ 这类有预测力的分析语言。这一约定与第二章“正典—变种”结构是兼容的：
+ 正典奶龙是“高保真复制的稳定吸引子”，奶蛙是“低保真复制的变异簇”——
+ 两者都是复制子视角下的不同动态。
+  \item \textbf{不追求“同一性”判定}。
+一万条奶蛙视频是不是“同一个 meme”？本书不回答本体论问题，
+ 只给出\keyw{操作化归并标准} （定义~\ref{def:05:cluster}）。
+\end{enumerate}
+
+\begin{definition}[迷因簇（meme cluster，本书用法）]
+  \label{def:05:cluster}
+设 $\mathcal{U}$ 为可检索的奶蛙相关用例集合（视频、图片、帖子）。
+ 若两个用例 $u, u' \in \mathcal{U}$ 满足 \textbf{(C1)} 形象结构相似（保留：
+黄色主体、大笑姿态；允许：体型比例、细节装饰差异），
+ \textbf{(C2)} 形式要素重叠（使用相同或近似的音轨、结尾套路、
+ 衍生语之一），
+ \textbf{(C3)} 社群可辨识（随机抽样社群成员在提示下能识别“这是奶蛙”），
+ 则 $u$ 与 $u'$ 归入同一迷因簇。归并是\keyw{传递闭包} 关系：
+$u \sim u'$、 $u' \sim u''$ 推出 $u \sim u''$。
+\end{definition}
+
+注意 定义~\ref{def:05:cluster} 把“归并”
+从美学判断（“像不像”）改写成三条可执行的检查项，
+ 其中 (C3) 最容易被忽略，也最关键：
+ \keyw{归并的最终裁判不是编辑部的相似度直觉，而是社群的可辨识性}。
+ 第六章的谱系表将用这三条标准逐类检验。
+
+\section{三阶段：变异、选择、保留}\label{sec:05:stages}
+
+把 定义~\ref{def:05:cluster} 的归并标准反过来用，
+ 就得到奶蛙迷因簇内部结构的 \keyw{三阶段动力学}：
+
+\subsection{变异}
+
+奶蛙的变异有明确的“变异引擎”： AIGC 工具（第八章详论）。
+ 低精度图像模型的结构性畸变（腹部膨大、四肢细小）
+ 提供了\keyw{形象层面的变异源}；
+ 视频生成模型（二手评述提及的抖音 Seedance 等 \conf{C}\cite{shoutanji2026naiwa}）
+ 把静态形象变为可剪辑的“角色演员”；
+ 音轨的变调处理提供了 \keyw{声音层面的变异源}。
+ 变异的关键特征是\keyw{方向性不对称}：
+ 从正典奶龙到奶蛙是“一次大畸变 + 持续小调整”，
+ 从奶蛙回到正典几乎不发生（没人会把奶蛙“修回”奶龙再传播）。
+ 这种不对称是第六章“内容层”分析的直接输入。
+
+\subsection{选择}
+
+选择压力
+来自三处：
+
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{平台算法}：
+完播率、转发率等指标筛选“结尾够不够好笑”；
+  \item \textbf{社群规范}：
+“太正经”的奶蛙不被转发（抽象文化的准入测试，
+ 第二章定义~\ref{def:02:abstract}）；
+  \item \textbf{认知经济性}：
+形象必须“一眼可辨”——畸变不能超过可辨识阈值，否则 (C3) 失败。
+\end{enumerate}
+
+三者共同产生了一个可观察推论：
+ \keyw{奶蛙形象的变异率在“可辨识”与“足够怪”之间存在一个窄通道}——
+ 这解释了为什么不同 UP 主独立生产的奶蛙在轮廓上高度趋同（都保留了黄色 + 大笑 + 膨大腹部），
+ 而在细节上高度发散（换皮、物化、娘化）。
+ 第六章将把这条推论落进谱系表。
+
+\subsection{保留}
+
+保留（retention）指变体进入“社群记忆”的过程：
+ 衍生语（“安迪”“无了”）进入词汇表，衍生动作（思考、
+ 蹲起大笑、爬行、摆架势）进入身体程式，立牌进入校园空间。
+ 保留的单位是 \keyw{“可复用资产”}：
+ 一个被保留的变体是未来变异的 \keyw{原料}——“奶蛋”
+ 之所以存在，正因为“奶蛙”本身先被保留。
+ 三阶段因此不是直线，而是 \keyw{ 飞轮 } ：保留喂养变异，
+ 变异经过选择，选择的产物再被保留。第七章的“压力—门槛—
+放大器”结构就是这个飞轮的社会机制版本。
+
+\begin{figure}[htbp]\centering
+\begin{tikzpicture}[font=\small,
+  every node/.style={align=center,inner sep=3pt},
+  stage/.style={rounded corners,draw=NLDeep,thick,
+    fill=NLYellow!18,minimum height=1.5cm,minimum width=3.2cm},
+  arr/.style={-{Stealth[length=3mm]},thick,NLDeep}]
+  \node[stage] (var) {变异\\{\footnotesize AIGC 畸变、变调、换皮}};
+  \node[stage,right=2.6cm of var] (sel) {选择\\{\footnotesize 算法、社群规范、认知经济性}};
+  \node[stage,below=1.6cm of sel] (ret) {保留\\{\footnotesize 衍生语、动作、立牌进入社群记忆}};
+  \draw[arr] (var) -- node[above]{变体} (sel);
+  \draw[arr] (sel) -- node[right]{通过者} (ret);
+  \draw[arr] (ret) -- node[below,rotate=0]{可复用资产} (var);
+  \node[font=\footnotesize,align=left] at (1.2,-1.6) {（飞轮：保留喂养变异）};
+\end{tikzpicture}
+  \caption{迷因三阶段飞轮（M 级教学框架；
+          “变体/通过者/可复用资产”
+          为本书的操作化命名）。}
+  \label{fig:05:wheel}
+\end{figure}
+
+\section{三维框架：内容、形式、立场}\label{sec:05:shifman}
+
+Shifman 把数字迷因的分析从“内容像什么”推进到“它在做什么”：
+ 每个迷因用例同时携带 \keyw{内容} （content，形象、文本、
+ 声音等可描述素材）、 \keyw{形式} （form，媒介、体裁、结构套路）
+ 与 \keyw{立场} （stance，使用者借迷因表达的态度、情绪、
+ 社交姿态）三个维度 \cite{shifman2013memes}。
+ 三维的价值在于它把“为什么好笑”
+ 拆成了三个可分别提问的问题：内容——“它画的是什么”；
+ 形式——“它按什么套路组织”；立场——“它在替谁说什么话”
+ 。
+
+在奶蛙语料中，三维的不对称是显著的：
+ \keyw{内容高度可替换} （换皮、物化、任何“黄色大笑生物”
+ 都能接进来）， \keyw{形式高度稳定} （结尾集体大笑、
+ 衍生语搭配、“压力桥段 → 大笑”的叙事结构），
+ \keyw{立场高度约定化} （使用奶蛙 = 声明“我绷不住了，
+ 但我选择用笑来处理”）。第六章将对这一“一软两硬”
+ 的结构做完整解剖；本章只给出框架本身。
+
+\section{迷因作为争夺中的文化资本}\label{sec:05:capital}
+
+Nissenbaum 与 Shifman 对 4chan /b/ 版的研究把迷因的“立场”
+维度推进了一步：迷因不是“表达”某种预先存在的态度，
+ 而是 \keyw{争夺文化资本的手段}——谁先用、谁用得更准、
+ 谁能识别“过期梗”，
+ 都在持续地重新分配社群内部的地位 \cite{nissenbaum2015contested}。
+ “文化资本”在这里是 \keyw{可被社群审计的东西}：
+ 你转发过什么、用过哪个衍生语、对哪个“过期梗”保持沉默，
+ 都构成他人可读取的地位信号。
+
+这一框架对本书的直接意义是两条：
+
+\begin{enumerate}[label=\arabic*.]
+  \item \textbf{“看不懂”
+不是传播的失败，而是传播的准入测试}。
+ 抽象文化的意义悬置（第二章定义~\ref{def:02:abstract}）
+ 在资本框架下重新解释：
+ 它制造了一个只有圈内人能通过的认证环节，
+ 而通过认证的回报是地位信号本身。第七章的“群体稀释”
+ 机制将用到这一点：用梗代替自述，既表达了情绪，
+ 又完成了一次低成本的身份认证。
+  \item \textbf{逆反
+是资本游戏的合法玩法}。官方关评、
+ 拉黑（第四章 \ref{sec:04:official}）
+ 在资本框架下读作“权威的否认”，
+ 而被权威否认的梗获得“含金量”背书——
+ 这就是第一版教材所说的“逆反认证”的学理版本，
+ 也是第七章 \ref{sec:07:reverse} 机制的理论入口。
+\end{enumerate}
+
+\begin{nlcritique}[批判性反思]
+资本框架的危险在于它可能把一切社群行为都读成“地位游戏”，
+ 从而取消了“人们就是单纯觉得好笑”这一朴素解释的合法性。
+ 本书的处理：第七章把“纯消遣”
+ 保留为竞争性假设的一部分（“低成本娱乐”解释），
+ 并要求资本框架给出自己的可观察预测（例如“梗的地位信号价值随其普及度上升而下降”），
+ 否则它只是一种解释风格，不是一个可检验的理论。
+\end{nlcritique}
+
+\section{SIR 型迷因传播教学模型}\label{sec:05:sir}
+
+\begin{nlmethod}[研究方法提示：模型地位声明]
+本节模型为\keyw{本书构造的 M 级教学模型}：所有参数取值为示意值，
+ 不声称拟合任何平台的真实数据；模型的作用是（i）把“热度衰减”
+“二次爆发”从形容词变成有明确条件的命题；（ii）
+ 为第七章的假设提供统一的时间骨架。修订者可以替换参数、替换状态定义，
+ 但必须保留“每个状态转移都有可指认的社会机制”这一约束。
+\end{nlmethod}
+
+\subsection{三态定义}
+
+把受众分为三个状态：
+
+\begin{itemize}[leftmargin=2.2em]
+  \item $S(t)$：\keyw{易感者}（susceptible）——
+        尚未深度接触迷因、
+        仍有概率被“激活”的人群；
+  \item $I(t)$：\keyw{传播者}（infectious）——
+        当前处于“主动使用/转发/二创”
+        状态的人群；
+  \item $R(t)$：\keyw{疲劳者}（recovered 的挪用，
+本书读作“疲劳”）——已深度接触但“笑不动了”、不再主动传播的人群。
+\end{itemize}
+
+借用流行病学 SIR 模型的状态命名有明确理由：“疲劳”与“康复”
+在结构上同型（都退出 $I$ 态），而“疲劳不是免疫”（可被重新激活）
+ 与下面引入的免疫衰减项对应。总人数 $N = S+I+R$ 取常数。
+
+\subsection{方程组}
+
+\begin{equation}\label{eq:05:sir}
+\begin{cases}
+\displaystyle
+\frac{dS}{dt} = -\,\beta\,\frac{S\,I}{N} \;+\; \omega\, R,
+\\[1.2ex]
+\displaystyle
+\frac{dI}{dt} = \;\beta\,\frac{S\,I}{N} \;-\; \gamma\, I,
+\\[1.2ex]
+\displaystyle
+\frac{dR}{dt} = \;\gamma\, I \;-\; \omega\, R.
+\end{cases}
+\end{equation}
+
+各参数的社会机制对应：
+
+\begin{table}[htbp]\centering
+  \caption{模型参数的机制对应（M 级教学模型，
+          取值为示意值，日为单位）}\label{tab:05:params}
+  \small
+  \begin{tabularx}{\textwidth}{@{}lXll@{}}
+    \toprule
+    参数 & 机制解释 & 示意取值 & 可检验的替换 \\ \midrule
+    $\beta$ & 接触—激活率：
+      一个传播者每日“激活”
+      一个易感者的期望数
+      （对应机制：
+      平台推送、
+      群聊复读、
+      线下偶遇） & $0.35$
+      & 用“每接触者日均转发数”估计 \\
+    $\gamma$ & 退出传播率：
+      从“主动使用”退出到“疲劳”
+      的速率（对应机制：
+      疲劳、被嘲、
+      “梗过期”的自我感知） & $0.20$
+      & 用“梗的半衰期”估计 \\
+    $\omega$ & 免疫衰减率：
+      疲劳者被
+      \keyw{新变体 / 新工具 /
+      新情境}
+      重新激活的速率
+      （对应机制：
+      换皮新形象、
+      视频生成工具上线、
+      官方事件） & $0.05$
+      & 用“二次爆发的触发事件”估计 \\ \bottomrule
+  \end{tabularx}
+\end{table}
+
+基本再生数 $R_0 = \beta/\gamma$
+（示意参数下 $R_0 = 1.75 > 1$，
+故初期会上升）。
+模型的两个核心命题：
+
+\begin{proposition}[必然衰减]\label{prop:05:decay}
+在 $\omega = 0$（无免疫衰减）的退化情形下，
+ 方程 \eqref{eq:05:sir} 的 $I(t)$ 单峰：热度必然从峰值回落。
+\end{proposition}
+\begin{proof}[证明思路]
+当 $S/N$ 降到 $\gamma/\beta$ 以下时， $dI/dt < 0$ 恒成立；
+ 而 $S$ 单调不增（$\omega=0$ 时 $dS/dt \le 0$），
+ 故 $I$ 一旦转为下降便不再回升。完整推导留给习题 5-2。
+\end{proof}
+
+\begin{proposition}[二次爆发的条件]\label{prop:05:second}
+若存在一个时刻 $t_0$，
+ 使 $S(t_0)/N > \gamma/\beta$ （例如由新变体把部分 $R$ 经 $\omega R$ 重新注入 $S$，
+ 或由外部新人群流入），则 $I(t)$ 在 $t_0$ 之后可以出现第二个峰。
+ 二次爆发的“弹药”
+ 是\keyw{未被耗尽的易感存量} 与\keyw{足够强的重新激活项}。
+\end{proposition}
+
+两条命题合起来就是“衰减与二次爆发”的结构解释：奶蛙在 2024—
+2025 年“小范围传播”
+后的 2026 年爆发（第四章 \ref{sec:04:discovery} 的时间线），
+ 在模型语言里对应一次 $\omega$ 被“新工具 + 新形象 + 官方事件”
+ 共同拉高的重新激活过程（\conf{C} 级时间线为 M 级模型提供事件顺序，
+ 模型本身不提供因果断言）。
+
+\subsection{示意曲线}
+
+\begin{figure}[htbp]\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.92\textwidth, height=6.4cm,
+  xlabel={时间（天，示意刻度）},
+  ylabel={$I(t)$，传播者规模（示意归一化）},
+  xmin=0, xmax=120, ymin=0, ymax=1.05,
+  xtick={0,10,20,...,120},
+  grid=major, grid style={NLGrey!30},
+  legend pos=north west,
+  every axis plot/.append style={thick},
+]
+\addplot[NLDeep,samples=200,smooth]
+  {0.55*exp(-((x-14)^2)/60) + 0.95*exp(-((x-72)^2)/110)};
+  \addlegendentry{$I(t)$：双峰（教学示意）}
+\addplot[NLYellow!80!black,samples=200,smooth,thick,dashed]
+  {0.55*exp(-((x-14)^2)/60)};
+  \addlegendentry{第一峰成分}
+\addplot[NLAmber,samples=200,smooth,thick,dashdotted]
+  {0.95*exp(-((x-72)^2)/110)};
+  \addlegendentry{第二峰成分（重新激活后）}
+\end{axis}
+\end{tikzpicture}
+  \caption{迷因传播双峰示意曲线（M 级教学图；
+曲线为两个高斯峰的叠加，不是对任何平台数据的拟合，
+ 也不是对方程 \eqref{eq:05:sir} 的数值解——
+ 其作用是展示 命题~\ref{prop:05:second} 的定性形态）。
+ 第一峰对应 2024—2025 的小范围传播期，
+ 第二峰对应 2026 年全面爆发期（时间线见附录 \ref{app:timeline}，
+ 可信度 \conf{C}）。}
+  \label{fig:05:sir}
+\end{figure}
+
+\begin{nlcritique}[批判性反思：模型的边界]
+该模型至少有三处明确的局限，修订者不得“悄悄修补”
+后当作经验结论引用： (1) \textbf{单群同质假设}：它把“高校”“职场”
+ “家庭”混在一个 $N$ 里，
+ 而校园与平台的接触率差异正是本书关心的核心；
+ 第十章的案例因此需要多群版本。 (2) \textbf{状态不可直接观测}：
+ $I$ 态的“主动使用”无法从公开数据直接读出，
+ 任何用“转发量”代理 $I$ 的做法都必须声明代理误差。
+ (3) \textbf{参数无识别性}：
+ $\beta,\gamma,\omega$ 的示意取值之间存在大量“等价”的参数组，
+ 模型给出的是 \keyw{形态约束} （单峰 / 双峰、峰值先后），
+ 不是定量预测。
+\end{nlcritique}
+
+\section{本章小结}\label{sec:05:summary}
+
+本章配好了全书的工具箱：
+ 概念链（道金斯复制子 → Shifman 三维 → 争夺中的文化资本），
+ 操作化装置（迷因簇归并标准， 定义~\ref{def:05:cluster}；
+ 三阶段飞轮，图~\ref{fig:05:wheel}），
+ 以及时间骨架（ SIR 型教学模型，方程 \eqref{eq:05:sir}，
+ 图~\ref{fig:05:sir}，含两条命题与三条模型边界声明）。
+ 工具与材料到此齐备：接下来两章开始“解剖”——
+ 第六章按三维框架处理奶蛙的符号系统，第七章把“为什么笑”
+ 重写为可检验的假设。必须重申的是：
+ 本章所有模型构件均为 M 级教学装置，
+ 其价值在于让问题可形式化，
+ 而不在于对任何平台数据做定量断言。
+
+\begin{nlexercises}
+  \item 用
+定义~\ref{def:05:cluster} 的 (C1)(C2)(C3) 三条标准，
+ 判断以下用例与“经典捧腹大笑奶蛙”是否归入同一迷因簇，
+ 并说明哪一条标准起了决定作用：
+ (a) 把奶蛙形象 P 成拿着高等数学课本的表情包； (b) 一只黄色、
+ 大笑但体型正常的龙； (c) 完全不同形象、
+ 但使用同一音轨与结尾套路的视频。
+  \item 完成
+命题~\ref{prop:05:decay} 的完整推导：
+ 证明当 $\omega=0$ 且 $S(0)>0$ 时， $I(t)$ 至多一个极大值。（提示：
+ 考察 $dI/dt=0$ 的条件与 $S(t)$ 的单调性。）
+  \item 给
+出一个可执行的方案：
+ 若你能获得某平台 90 天的奶蛙相关内容的“日均新增量”序列，
+ 你将如何用它来区分“单峰”与“双峰”
+ 两种形态（写出判据与对“噪声”的稳健化处理；
+ 说明该方案不能识别什么）。
+\end{nlexercises}
+
+\nlkeywords 复制子、迷因簇、变异—选择—保留、
+三维框架、文化资本、SIR 型教学模型、$R_0$、
+二次爆发、免疫衰减

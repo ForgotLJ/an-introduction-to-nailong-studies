@@ -1,0 +1,19 @@
+%% 独立导出封面、封底。于项目根目录执行：
+%% xelatex -interaction=nonstopmode -halt-on-error -output-directory=build covers.tex
+%% 连续执行两遍，使页面锚点与书签稳定。
+\documentclass[UTF8,11pt,oneside]{ctexbook}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{graphicx,xcolor,tikz}
+\usetikzlibrary{calc}
+\usepackage[unicode=true,pdftitle={奶龙学导论：封面与封底},pdfauthor={《奶龙学导论》编写组}]{hyperref}
+\usepackage{bookmark}
+\newcommand{\BookTitle}{奶龙学导论}
+\newcommand{\BookSubtitle}{从奶龙到奶蛙的迷因文化研究}
+\newcommand{\BookEdition}{第一版}
+\newcommand{\BookDate}{二〇二六年十月}
+\newcommand{\BookOrg}{《奶龙学导论》编写组}
+\input{style/cover.tex}
+\begin{document}
+\input{frontmatter/cover}
+\input{backmatter/backcover}
+\end{document}

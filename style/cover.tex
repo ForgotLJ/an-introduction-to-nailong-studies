@@ -1,0 +1,16 @@
+%% 封面专用样式；不改动正文共享宏层。
+\definecolor{NLCoverPaper}{HTML}{FBF7EE}
+\definecolor{NLCoverGreen}{HTML}{24463E}
+\definecolor{NLCoverMuted}{HTML}{64756B}
+\definecolor{NLCoverLine}{HTML}{D8DECE}
+\definecolor{NLCoverGold}{HTML}{EAB63E}
+\newCJKfontfamily\NLCoverSans{Microsoft YaHei}
+\newCJKfontfamily\NLCoverBold{Microsoft YaHei}[FontFace={b}{n}{Microsoft YaHei Bold}]
+\newfontfamily\NLCoverLatin{TeX Gyre Heros}
+
+%% 仅供封面使用的固定页面坐标：原点在左上，单位厘米。
+\tikzset{
+  nlcovertext/.style={anchor=north west,inner sep=0pt,outer sep=0pt,align=left},
+  nlcoverright/.style={anchor=north east,inner sep=0pt,outer sep=0pt,align=right}
+}
+
